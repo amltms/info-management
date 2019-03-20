@@ -15,5 +15,9 @@
 			<?php if (isset($_POST["usernameInput"]) && isset($_POST["passwordInput"])) { // If username and password textbox have values 
 					$algorithm = "sha256"; // Which hashing algorithm should be used
 					$pwrdHash = hash($algorithm, $_POST["passwordInput"]); // Hash passwords so they are not sent as plain text
+					if ($_POST["usernameInput"] == "test" && $_POST["passwordInput"] == "test") {
+						$_SESSION['username'] = "test"; 
+						header("Location: ".base_url());
+					}						
 				} ?>
 		</div>
