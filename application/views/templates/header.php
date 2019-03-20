@@ -8,6 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/site.css">
+	
+	<!-- Add favicon to the page -->
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico?t=' . time() . '" />
 		
 	<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd;">

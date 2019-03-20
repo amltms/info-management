@@ -1,16 +1,14 @@
-		<?php // Add custom login CSS ?>
+		<?php // Add custom login/register CSS ?>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/login.css">
 		<div class="login">
-			<h3>Login to UniChat</h3>
+			<h3>Create an account</h3>
 			<form method="post">
-				<input type="text" name="usernameInput" placeholder="Username or email address"> <br>
+				<input type="text" name="nameInput" placeholder="Name"> <br>
+				<input type="text" name="usernameInput" placeholder="Username"> <br>
+				<input type="text" name="emailInput" placeholder="Email address"> <br>
 				<input type="password" name="passwordInput" placeholder="Password"> <br>
-				<input type="submit" name="loginButton" value="Login"> <br>
-			</form>
-			<hr>
-			or
-			<form action="<?php echo base_url(); ?>index.php/pages/view/register" method="post">
-				<input type="submit" name="createAccount" value="Create an account" /> <?php // post createAccount and refresh the page ?>
+				<input type="password" name="confirmPasswordInput" placeholder="Confirm Password"> <br>
+				<input type="submit" name="registerButton" value="Create account"> <br>
 			</form>
 			<?php if (isset($_POST["usernameInput"]) && isset($_POST["passwordInput"])) { // If username and password textbox have values 
 					$algorithm = "sha256"; // Which hashing algorithm should be used
