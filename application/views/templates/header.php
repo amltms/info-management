@@ -7,7 +7,9 @@
     <title><?php echo $title; ?></title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-			
+		
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico?t=' . time() . '" />
+		
 	<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd;">
 		<a class="navbar-brand" href="<?php echo base_url(); ?>">UniChat</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

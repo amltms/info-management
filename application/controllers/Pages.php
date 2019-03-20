@@ -7,7 +7,7 @@ class Pages extends CI_Controller {
 		
 		$this->load->helper("url"); // Load url helper
 		
-		$data["title"] = ucfirst($page); // Makes first letter capital
+		$data["title"] = "UniChat - ".ucfirst($page); // Makes first letter capital
 		
 		$this->load->view("templates/header", $data);
 		$this->load->view("pages/".$page, $data);
