@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+	<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,12 +49,12 @@
 				</ul>
 			<?php } else { ?>
 				<ul class="nav navbar-nav navbar-right">
-					<a class="nav-link" href="login.php">Login</a>
+					<a class="nav-link" href="<?php echo base_url(); ?>index.php/pages/view/login">Login</a>
 				</ul>
 			<?php } ?>
 		</div>
 		</div>
 	</nav>
   
-  </head>
-  <body>
+	</head>
+	<body>
