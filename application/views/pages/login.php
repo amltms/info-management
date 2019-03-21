@@ -1,5 +1,5 @@
 		<?php // Add custom login CSS ?>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/login.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>login.css">
 		<div class="login">
 			<h3>Login to UniChat</h3>
 			<form method="post">
@@ -18,6 +18,9 @@
 					if ($_POST["usernameInput"] == "test" && $_POST["passwordInput"] == "test") {
 						$_SESSION['username'] = "test"; 
 						header("Location: ".base_url());
-					}						
+					} else { ?>
+						<br>
+						<h6 class="text-danger">Invalid username or password, please try again.</h6>
+					<?php }
 				} ?>
 		</div>

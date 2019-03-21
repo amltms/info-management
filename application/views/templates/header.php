@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
 	<!-- Custom CSS -->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/site.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>site.css">
 	
 	<?php $this->load->helper("site_helper"); // Load site helper ?>
 	
