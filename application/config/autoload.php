@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url', 'site'); // Autoload site_helper.php from /application/helpers
 
 /*
 | -------------------------------------------------------------------
