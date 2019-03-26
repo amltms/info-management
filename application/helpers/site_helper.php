@@ -29,5 +29,4 @@ if (!function_exists("images_url")) {
 		return asset_url()."images/";
 	}
 } 
-
 ?>
