@@ -1,5 +1,5 @@
 <?php 
-
+// Logs the user out
 if (!function_exists("logout")) {
 	function logout() {
 		session_start();
@@ -24,9 +24,16 @@ if (!function_exists("css_url")) {
 } 
 
 // Return the url of the images directory
-if (!function_exists("images_url")) {
-	function images_url() {
+if (!function_exists("image_url")) {
+	function image_url() {
 		return asset_url()."images/";
+	}
+} 
+
+// Return the url to view pages
+if (!function_exists("page_url")) {
+	function page_url() {
+		return base_url()."index.php/pages/view/";
 	}
 } 
 
