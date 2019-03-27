@@ -14,7 +14,7 @@
 	<?php $this->load->helper("site_helper"); // Load site helper ?>
 	
 	<!-- Add favicon to the page -->
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico?t=' . time() . '" />
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico?t='.time().'" />
 		
 	<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd;">
 		<a class="navbar-brand" href="<?php echo base_url(); ?>">UniChat</a>
@@ -24,40 +24,39 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="">Home</a>
+					<a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Messages</a>
+					<a class="nav-link" href="<?php echo page_url(); ?>messages">Messages</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">Meetings</a>
-				</li>
-				<li class="nav-item">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				</li>
-				<li class="nav-item">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					<a class="nav-link" href="<?php echo page_url(); ?>meetings">Meetings</a>
 				</li>
 			</ul>
-			<?php session_start();
-				if (isset($_SESSION['username'])) { // If user is logged in, display the logout and dashboard nav items?>
+			
 				<ul class="nav navbar-nav navbar-right">
 					<li class="nav-item">
-						<a class="nav-link" href="profile.php">My profile</a>
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo(ucfirst($_SESSION['username'])); // Add the current username to the top corner?>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="<?php echo base_url(); ?>index.php/pages/view/logout">Logout</a>
-							</div>
-						</a>
+					<li class="nav-item">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</li>
+					<?php session_start();
+					if (isset($_SESSION['username'])) { // If user is logged in, display the logout and dashboard nav items?>
+					<li class="nav-item dropdown nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
+						<?php echo(ucfirst($_SESSION['username'])."⮟"); // Add the current username to the top corner?>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="<?php echo page_url(); ?>profile">Profile</a>
+							<a class="dropdown-item" href="<?php echo page_url(); ?>edit-profile">Update profile</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="<?php echo page_url(); ?>logout">Logout</a>
+						</div>
 					</li>
 
 				</ul>
 			<?php } else { ?>
 				<ul class="nav navbar-nav navbar-right">
-					<a class="nav-link" href="<?php echo base_url(); ?>index.php/pages/view/login">Login</a>
+					<a class="nav-link" href="<?php echo page_url(); ?>login">Login</a>
 				</ul>
 			<?php } ?>
 		</div>
