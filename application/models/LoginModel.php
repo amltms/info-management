@@ -15,14 +15,11 @@ class LoginModel extends CI_Model {
 		$query = $this->db->get_where("users", array("username" => $inputs["username"]));
 		$queryArray = $query->result_array();
 		if ($inputs["username"] == $queryArray[0]["username"] && $inputs["password"] == $queryArray[0]["password"]) {
-			/*$_SESSION['username'] = $queryArray[0]["username"]; 
+			session_start();
+			$_SESSION['username'] = $queryArray[0]["username"]; 
 			header("Location: ".base_url());
-			echo ("abc");
-			echo($_SESSION["username"]);*/
-			return $queryArray[0]["username"];
 		} else {
 			return false;
 		}
 	}
-}
-?>
+} ?>

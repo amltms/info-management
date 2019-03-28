@@ -1,5 +1,5 @@
 		<?php // Add custom login/register CSS ?>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/login.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>login.css">
 		<div class="login">
 			<h3>Create an account</h3>
 			<form method="post">

@@ -43,14 +43,16 @@
 					</li>
 					<?php session_start();
 					if (isset($_SESSION['username'])) { // If user is logged in, display the logout and dashboard nav items?>
-					<li class="nav-item dropdown nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"">
-						<?php echo(ucfirst($_SESSION['username'])."⮟"); // Add the current username to the top corner?>
-						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="<?php echo page_url(); ?>profile">Profile</a>
-							<a class="dropdown-item" href="<?php echo page_url(); ?>edit-profile">Update profile</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="<?php echo page_url(); ?>logout">Logout</a>
-						</div>
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<?php echo(ucfirst($_SESSION['username'])."⮟"); // Add the current username to the top corner?>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="<?php echo page_url(); ?>profile">Profile</a>
+								<a class="dropdown-item" href="<?php echo page_url(); ?>edit-profile">Update profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="<?php echo page_url(); ?>logout">Logout</a>
+							</div>
+						</a>
 					</li>
 
 				</ul>

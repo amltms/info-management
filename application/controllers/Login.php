@@ -5,15 +5,6 @@ class Login extends CI_Controller {
 		$this->load->model("LoginModel");
 		$this->load->helper("url_helper");
 	}
-	
-	/*public function index() {
-		$data = $this->LoginModel->checkLogin();
-		$data["title"] = "Login to UniChat";
-		
-		$this->load->view("templates/header", $data);
-		$this->load->view("pages/login", $data);
-		$this->load->view("templates/footer");
-	}*/
 
 	public function login() {
 		$this->load->helper('form');
@@ -26,14 +17,9 @@ class Login extends CI_Controller {
 			$this->load->view('pages/login', $data);
 			$this->load->view('templates/footer');
 		} else {
-			$loginAttempt = $this->LoginModel->checkLogin();
-			if ($loginAttempt != false) {
-				session_start();
-				$_SESSION['username'] = $loginAttempt; 
-				header("Location: ".base_url());
-			} else {
+			if ($this->LoginModel->checkLogin() == false) {
 				echo("Invalid username or password");
 			}
 		}
 	}
-}
+} ?>
