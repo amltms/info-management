@@ -60,6 +60,13 @@ VALUES ("Amal","Thomas","test2","07496462258","Bournemouth University","s5072239
 INSERT INTO Meetings (Subject,Location,MeetingDate,SenderID,RecieverID)
 VALUES ("Test meeting","P205","2019-04-01 10:00:00",1,2);
 
+
+INSERT INTO Messages (MessageTitle,Message,MessageDate,SenderID,RecieverID)
+VALUES ("Test Message","HELLO hi","2019-04-01 10:00:00",1,2);
+
+INSERT INTO Messages (MessageTitle,Message,MessageDate,SenderID,RecieverID)
+VALUES ("Test Message2","HELLO hi2","2019-04-01 10:00:00",2,1);
+
 DROP TABLE Meetings;
 DROP TABLE Messages;
 DROP TABLE Users;
