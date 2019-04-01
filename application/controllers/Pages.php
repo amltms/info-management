@@ -4,6 +4,8 @@ class Pages extends CI_Controller {
 		if (!file_exists(APPPATH."views/pages/".$page.".php")) { // If no page found
 			show_404();
 		}
+		//session_start();
+		//if (isset($_SESSION["name"];
 		
 		$this->load->helper("url"); // Load url helper
 		

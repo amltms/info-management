@@ -42,10 +42,10 @@
 						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 					</li>
 					<?php session_start();
-					if (isset($_SESSION['username'])) { // If user is logged in, display the logout and dashboard nav items?>
+					if (isset($_SESSION["name"])) { // If user is logged in, display the logout and dashboard nav items?>
 					<li class="nav-item dropdown">
 						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<?php echo(ucfirst($_SESSION['username'])."⮟"); // Add the current username to the top corner?>
+							<?php echo(ucfirst($_SESSION["name"]." ⮟")); // Add name to the top corner as a drop down title ?>
 							<div class="dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item" href="<?php echo page_url(); ?>profile">Profile</a>
 								<a class="dropdown-item" href="<?php echo page_url(); ?>edit-profile">Update profile</a>
