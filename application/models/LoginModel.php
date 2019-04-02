@@ -16,17 +16,19 @@ class LoginModel extends CI_Model {
 		$queryArray = $query->result_array();
 		
 		
-		session_start();
+		/*session_start();
 		$_SESSION["name"] = $queryArray[0]["first_name"]." ".$queryArray[0]["last_name"];
-		header("Location: ".base_url());
+		header("Location: ".base_url());*/
 
-		/*
-		if ($inputs["email"] == $queryArray[0]["email"] && $inputs["password"] == $queryArray[0]["password"]) {
-			session_start();
-			$_SESSION["name"] = $queryArray[0]["email"];
-			header("Location: ".base_url());
-		} else {
-			return false;
-		}*/
+		//echo(var_dump($queryArray));
+		if ($queryArray) {
+			if ($inputs["email"] == $queryArray[0]["email"] && $inputs["password"] == $queryArray[0]["password"]) {
+				session_start();
+				$_SESSION["name"] = $queryArray[0]["first_name"]." ".$queryArray[0]["last_name"];
+				header("Location: ".base_url());
+			} else {
+				return false;
+			}
+		}
 	}
 } ?>

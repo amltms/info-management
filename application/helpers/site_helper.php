@@ -33,7 +33,7 @@ if (!function_exists("image_url")) {
 // Return the url to view pages
 if (!function_exists("page_url")) {
 	function page_url() {
-		return base_url()."index.php/pages/view/";
+		return base_url()."pages/view/";
 	}
 } 
 

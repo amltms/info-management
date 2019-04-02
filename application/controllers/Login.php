@@ -18,7 +18,10 @@ class Login extends CI_Controller {
 			$this->load->view('templates/footer');
 		} else {
 			if ($this->LoginModel->checkLogin() == false) {
-				echo("Invalid email or password");
+				$this->load->view('templates/header', $data);
+				$this->load->view('pages/login', $data);
+				$this->load->view('templates/invalid_password', $data);
+				$this->load->view('templates/footer');
 			}
 		}
 	}
