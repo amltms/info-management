@@ -54,7 +54,9 @@ $route['(:any)'] = 'pages/view/$1';
 
 $route['login'] = 'users/login';
 $route['register'] = 'users/register';
+
 $route['messages'] = 'pages/view/messages';
+
 $route['meetings/create'] = 'meetings/create';
 $route['meetings/(:any)'] = 'meetings/view/$1';
 $route['meetings'] = 'meetings';
