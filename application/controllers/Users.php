@@ -48,7 +48,7 @@ class Users extends CI_Controller {
 				$this->load->view('errors/login/error_passwords_no_match', $data);
 				break;
 			case "email_used":
-				$this->load->view('errors/login/error_email_already_used', $data);
+				$this->load->view('errors/login/error_email_used', $data);
 				break;
 			case "invalid_email":
 				$this->load->view('errors/login/error_invalid_email', $data);
