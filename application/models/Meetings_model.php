@@ -21,7 +21,7 @@ class Meetings_model extends CI_Model {
       'Subject' => $this->input->post('subject'),
       'MeetingDate' => $this->input->post('date'),
       'Location' => $this->input->post('location'),
-      'SenderID' => '1',
+      'SenderID' => '1', // Make a session
       'RecieverID' => '2',
 
     );
