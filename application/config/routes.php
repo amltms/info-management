@@ -53,6 +53,9 @@ $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 
 $route['login'] = 'pages/view/login';
+$route['register'] = 'pages/view/register';
+$route['messages'] = 'pages/view/messages';
+$route['meetings'] = 'pages/view/meetings';
 
 //$route['404_override'] = '';
 
