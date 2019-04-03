@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>login.css">
 <div class="center">
 	<h3>UniChat create account</h3>
-	<?php echo form_open("register/register"); ?>
+	<?php echo form_open("users/register"); ?>
 		<input type="text" name="firstNameInput" placeholder="First name" value="<?php echo(set_value("firstNameInput"))?>"> <br>
 		<input type="text" name="secondNameInput" placeholder="Second name" value="<?php echo(set_value("secondNameInput"))?>"> <br>
 		<input type="text" name="emailInput" placeholder="Email address" value="<?php echo(set_value("emailInput"))?>"> <br>

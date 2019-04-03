@@ -7,15 +7,16 @@
     <title><?php echo $title; ?></title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		
+
 	<!-- Custom CSS -->
+		<?php $this->load->helper("site_helper"); // Load site helper ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>site.css">
-	
-	<?php $this->load->helper("site_helper"); // Load site helper ?>
-	
+
+
+
 	<!-- Add favicon to the page -->
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico?t='.time().'" />
-		
+
 	<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd;">
 		<a class="navbar-brand" href="<?php echo base_url(); ?>">UniChat</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +34,7 @@
 					<a class="nav-link" href="<?php echo base_url(); ?>meetings">Meetings</a>
 				</li>
 			</ul>
-			
+
 				<ul class="nav navbar-nav navbar-right">
 					<li class="nav-item">
 						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -64,6 +65,6 @@
 		</div>
 		</div>
 	</nav>
-  
+
 	</head>
 	<body>
