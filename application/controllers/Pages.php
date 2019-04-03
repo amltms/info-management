@@ -11,8 +11,16 @@ class Pages extends CI_Controller {
 		
 		$data["title"] = "UniChat - ".ucfirst($page); // Makes first letter capital
 		
-		$this->load->view("templates/header", $data);
-		$this->load->view("pages/".$page, $data);
-		$this->load->view("templates/footer", $data);
+		if (isset($_SESSION["account_created"])) {
+			$_SESSION["account_created"] = null;
+			$this->load->view("templates/header", $data);
+			$this->load->view("templates/account_created", $data);
+			$this->load->view("pages/".$page, $data);
+			$this->load->view("templates/footer", $data);
+		} else { 
+			$this->load->view("templates/header", $data);
+			$this->load->view("pages/".$page, $data);
+			$this->load->view("templates/footer", $data);
+		}
 	}
 }
