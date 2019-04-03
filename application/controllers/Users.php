@@ -18,7 +18,7 @@ class Users extends CI_Controller {
       $this->load->view('users/login', $data);
       $this->load->view('templates/footer');
     } else {
-      if ($this->LoginModel->checkLogin() == false) {
+      if ($this->users_model->checkLogin() == false) {
         $this->load->view('templates/header', $data);
         $this->load->view('users/login', $data);
         $this->load->view('errors/login/error_invalid_password', $data);
@@ -43,7 +43,7 @@ class Users extends CI_Controller {
     } else {
       $this->load->view('templates/header', $data);
           $this->load->view('users/register', $data);
-      switch ($this->RegisterModel->checkRegister()) {
+      switch ($this->user_model->checkRegister()) {
         case "passwords_no_match":
           $this->load->view('errors/login/error_passwords_no_match', $data);
           break;
@@ -61,6 +61,13 @@ class Users extends CI_Controller {
       }
       $this->load->view('templates/footer');
     }
+  }
+
+  public function logout(){
+    session_start();
+    $_SESSION['username'] = array(); // Unset everything in the session
+    session_destroy();
+    header("Location: ".base_url());
   }
 
 

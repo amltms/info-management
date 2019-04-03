@@ -53,8 +53,8 @@ $route['meetings/create'] = 'meetings/create';
 $route['meetings/(:any)'] = 'meetings/view/$1';
 $route['meetings'] = 'meetings';
 
-$route['login'] = 'users/login';
-$route['register'] = 'users/register';
+$route['users/login'] = 'users/login';
+$route['users/register'] = 'users/register';
 $route['users/(:any)'] = 'users/user/$1';
 $route['users'] = 'users';
 

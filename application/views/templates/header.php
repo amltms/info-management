@@ -51,7 +51,7 @@
 								<a class="dropdown-item" href="<?php echo base_url(); ?>profile">Profile</a>
 								<a class="dropdown-item" href="<?php echo base_url(); ?>edit-profile">Update profile</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="<?php echo base_url(); ?>logout">Logout</a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>index.php/Users/logout">Logout</a>
 							</div>
 						</a>
 					</li>
