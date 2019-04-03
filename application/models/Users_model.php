@@ -17,7 +17,7 @@ class Users_model extends CI_Model {
       "password" => $passwordHash
     );
 
-    $query = $this->db->get_where("users", array("email" => $inputs["email"]));
+    $query = $this->db->get_where("Users", array("Email" => $inputs["email"]));
     $queryArray = $query->result_array();
 
 
@@ -27,16 +27,16 @@ class Users_model extends CI_Model {
 
     //echo(var_dump($queryArray));
     if ($queryArray) {
-      if ($inputs["email"] == $queryArray[0]["email"] && $inputs["password"] == $queryArray[0]["password"]) {
+      if ($inputs["email"] == $queryArray[0]["Email"] && $inputs["password"] == $queryArray[0]["Password"]) {
         session_start();
-        $_SESSION["name"] = $queryArray[0]["first_name"]." ".$queryArray[0]["last_name"];
+        $_SESSION["name"] = $queryArray[0]["FirstName"]." ".$queryArray[0]["LastName"];
         header("Location: ".base_url());
       } else {
         return false;
       }
     }
   }
-  
+
 
   public function checkRegister() {
     $algorithm = "sha256"; // Hashing algorithm used
@@ -54,7 +54,7 @@ class Users_model extends CI_Model {
     if ($inputs["password"] != $inputs["confirmPassword"]) {
       return "passwords_no_match";
     } else if ($queryArray) {
-      if ($queryArray[0]["email"] === $inputs["email"]) {
+      if ($queryArray[0]["Email"] === $inputs["email"]) {
         return "email_used";
       }
     } else {
