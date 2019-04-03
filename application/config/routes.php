@@ -55,7 +55,8 @@ $route['(:any)'] = 'pages/view/$1';
 $route['login'] = 'pages/view/login';
 $route['register'] = 'pages/view/register';
 $route['messages'] = 'pages/view/messages';
-$route['meetings'] = 'pages/view/meetings';
+$route['meetings/create'] = 'meetings/create';
+$route['meetings/(:any)'] = 'meetings/view/$1';
+$route['meetings'] = 'meetings';
 
 //$route['404_override'] = '';
-

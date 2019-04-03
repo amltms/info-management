@@ -2,7 +2,7 @@
 class Register extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model("RegisterModel");
+		$this->load->model("users_model");
 		$this->load->helper("url_helper");
 	}
 
@@ -17,7 +17,7 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules('confirmPasswordInput', 'Confirm password', 'required');
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('templates/header', $data);
-			$this->load->view('pages/register', $data);
+			$this->load->view('users/register', $data);
 			$this->load->view('templates/footer');
 		} else {
 			if ($this->RegisterModel->checkRegister() == false) {
@@ -25,4 +25,23 @@ class Register extends CI_Controller {
 			}
 		}
 	}
+
+  public function login() {
+    $this->load->helper('form');
+    $this->load->library('form_validation');
+    $data['title'] = 'Login to UniChat';
+    $this->form_validation->set_rules('emailInput', 'Email', 'required');
+    $this->form_validation->set_rules('passwordInput', 'Password', 'required');
+    if ($this->form_validation->run() === FALSE) {
+      $this->load->view('templates/header', $data);
+      $this->load->view('pages/login', $data);
+      $this->load->view('templates/footer');
+    } else {
+      if ($this->LoginModel->checkLogin() == false) {
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/login', $data);
+        $this->load->view('templates/invalid_password', $data);
+        $this->load->view('templates/footer');
+      }
+    }
 } ?>
