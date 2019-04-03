@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>login.css">
 <div class="center">
 	<h3>Login to UniChat</h3>
-	<?php echo form_open("login/login"); ?>
+	<?php echo form_open("users/login"); ?>
 		<input type="text" name="emailInput" placeholder="Email address" value="<?php echo(set_value("emailInput"))?>"> <br>
 		<input type="password" name="passwordInput" placeholder="Password"> <br>
 		<input type="submit" name="loginButton" value="Login"> <br>
