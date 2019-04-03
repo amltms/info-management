@@ -1,4 +1,3 @@
-<?php // Add custom login CSS ?>
 <link rel="stylesheet" type="text/css" href="<?php echo css_url(); ?>login.css">
 <div class="center">
 	<h3>Login to UniChat</h3>

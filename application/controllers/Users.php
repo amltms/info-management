@@ -18,7 +18,7 @@ class Users extends CI_Controller {
       $this->load->view('users/login', $data);
       $this->load->view('templates/footer');
     } else {
-      if ($this->users_model->checkLogin() == false) {
+      if ($this->Users_model->checkLogin() == false) {
         $this->load->view('templates/header', $data);
         $this->load->view('users/login', $data);
         $this->load->view('errors/login/error_invalid_password', $data);
@@ -43,7 +43,7 @@ class Users extends CI_Controller {
     } else {
       $this->load->view('templates/header', $data);
           $this->load->view('users/register', $data);
-      switch ($this->user_model->checkRegister()) {
+      switch ($this->Users_model->checkRegister()) {
         case "passwords_no_match":
           $this->load->view('errors/login/error_passwords_no_match', $data);
           break;
