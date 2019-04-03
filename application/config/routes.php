@@ -52,8 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 
-$route['login'] = 'pages/view/login';
-$route['register'] = 'pages/view/register';
+$route['login'] = 'users/login';
+$route['register'] = 'users/register';
 $route['messages'] = 'pages/view/messages';
 $route['meetings/create'] = 'meetings/create';
 $route['meetings/(:any)'] = 'meetings/view/$1';
