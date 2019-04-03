@@ -20,9 +20,25 @@ class Register extends CI_Controller {
 			$this->load->view('pages/register', $data);
 			$this->load->view('templates/footer');
 		} else {
-			if ($this->RegisterModel->checkRegister() == false) {
-				echo("No match");
+			$this->load->view('templates/header', $data);
+					$this->load->view('pages/register', $data);
+			switch ($this->RegisterModel->checkRegister()) {
+				case "passwords_no_match":
+					$this->load->view('templates/passwords_no_match', $data);
+					break;
+				case "email_used":
+					$this->load->view('templates/email_already_used', $data);
+					break;
+				case "invalid_email":
+					$this->load->view('templates/invalid_email', $data);
+					break;
+				case "account_created":
+					session_start();
+					$_SESSION["account_created"] == true;
+					header("Location: ".base_url());
+					break;
 			}
+			$this->load->view('templates/footer');
 		}
 	}
 } ?>
