@@ -62,7 +62,7 @@ class Users extends CI_Controller {
 		$this->load->view('templates/footer');
 		}
 	}
-
+	
 	public function logout(){
 		session_start();
 		$_SESSION['username'] = array(); // Unset everything in the session

@@ -58,6 +58,7 @@ $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
 
 $route['login'] = 'Users/login';
+$route['logout'] = 'Users/logout';
 $route['register'] = 'Users/register';
 $route['messages'] = 'pages/view/messages';
 
