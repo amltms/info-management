@@ -21,7 +21,7 @@ class Users extends CI_Controller {
 			if ($this->Users_model->checkLogin() == false) {
 				$this->load->view('templates/header', $data);
 				$this->load->view('users/login', $data);
-				$this->load->view('errors/login/error_invalid_password', $data);
+				$this->load->view('errors/login/error_no_account', $data);
 				$this->load->view('templates/footer');
 			}
 		}
@@ -47,16 +47,22 @@ class Users extends CI_Controller {
 			case "passwords_no_match":
 				$this->load->view('errors/login/error_passwords_no_match', $data);
 				break;
+			case "invalid_password":
+				$this->load->view('errors/login/error_invalid_password', $data);
+				break;
 			case "email_used":
 				$this->load->view('errors/login/error_email_used', $data);
 				break;
 			case "invalid_email":
 				$this->load->view('errors/login/error_invalid_email', $data);
 				break;
+			case "email_short":
+				$this->load->view('errors/login/error_email_short', $data);
+				break;
 			case "account_created":
 				session_start();
 				$_SESSION["account_created"] == true;
-				header("Location: ".base_url()."/users/login");
+				header("Location: ".base_url()."login");
 				break;
 			}
 		$this->load->view('templates/footer');
@@ -110,7 +116,7 @@ class Users extends CI_Controller {
 					$this->load->view('errors/login/error_email_used', $data);
 					break;
 				case "account_updated":
-					header("Location: ".base_url()."users/user/".$_SESSION['userID']);
+					header("Location: ".base_url()."user/".$_SESSION['userID']);
 					break;
 			}
 		$this->load->view('templates/footer');

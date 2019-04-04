@@ -49,17 +49,17 @@
 							<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<?php echo(ucfirst($_SESSION["name"]." ⮟")); // Add name to the top corner as a drop down title ?>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="<?php echo base_url()."users/user/".$_SESSION["userID"]; ?>">Profile</a>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>users/editprofile">Edit profile</a>
+									<a class="dropdown-item" href="<?php echo base_url()."user/".$_SESSION["userID"]; ?>">Profile</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>editprofile">Edit profile</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Logout</a>
+									<a class="dropdown-item" href="<?php echo base_url(); ?>logout">Logout</a>
 								</div>
 							</a>
 						</li>
 					</ul>
 					<?php } else { ?>
 						<ul class="nav navbar-nav navbar-right">
-							<a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+							<a class="nav-link" href="<?php echo base_url(); ?>login">Login</a>
 						</ul>
 					<?php } ?>
 				</div>

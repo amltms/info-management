@@ -52,6 +52,10 @@ class Users_model extends CI_Model {
 
 		if ($inputs["password"] != $inputs["confirmPassword"]) {
 			return "passwords_no_match";
+		} else if (strlen($inputs["email"]) < 8 || strpos($inputs["email"], '@')) {
+			return "email_short";
+		} else if (strlen($this->input->post("passwordInput")) < 6 || strlen($this->input->post("passwordInput")) > 25) {
+			return "invalid_password";
 		} else if ($queryArray) {
 			if ($queryArray[0]["Email"] === $inputs["email"]) {
 				return "email_used";

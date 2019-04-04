@@ -56,11 +56,6 @@
 				<input type="submit" name="saveButton" value="Save">
 			</div>	
 		</div>
-		<div class="row">
-			<div class="col-8">
-				<input type="submit" name="cancelButton" value="Cancel">	
-			</div>
-		</div>
 		</form>
 	</div>
 </div>

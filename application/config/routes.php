@@ -58,6 +58,8 @@ $route['meetings/create'] = 'Meetings/create';
 $route['meetings/(:any)'] = 'Meetings/view/$1';
 $route['messages'] = 'Messages/index';
 $route['messages/create'] = 'Messages/create';
+$route['user/(:any)'] = 'Users/user/$1';
+$route['editprofile'] = 'Users/editprofile';
 
 $route['(:any)'] = 'pages/view/home';
 //$route['404_override'] = '';

@@ -1,3 +1,3 @@
 <p class="text-danger" style="text-align:center;">
-	Invalid email or password, please try again.
+	Invalid password, must be between 6 and 25 characters.
 </p>
