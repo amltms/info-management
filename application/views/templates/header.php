@@ -47,8 +47,8 @@
 						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<?php echo(ucfirst($_SESSION["name"]." ⮟")); // Add name to the top corner as a drop down title ?>
 							<div class="dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item" href="<?php echo base_url(); ?>profile">Profile</a>
-								<a class="dropdown-item" href="<?php echo base_url(); ?>edit-profile">Update profile</a>
+								<a class="dropdown-item" href="<?php echo base_url()."users/user/".$_SESSION["userID"]; ?>">Profile</a>
+								<a class="dropdown-item" href="<?php echo base_url(); ?>users/edit-profile">Update profile</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Logout</a>
 							</div>

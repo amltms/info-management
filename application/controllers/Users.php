@@ -6,7 +6,7 @@ class Users extends CI_Controller {
 		$this->load->model('Users_model');
 		$this->load->helper('url_helper');
 	}
-
+	
 	public function login() {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -56,7 +56,7 @@ class Users extends CI_Controller {
 			case "account_created":
 				session_start();
 				$_SESSION["account_created"] == true;
-				header("Location: ".base_url());
+				header("Location: ".base_url()."/users/login");
 				break;
 			}
 		$this->load->view('templates/footer');
@@ -69,5 +69,18 @@ class Users extends CI_Controller {
 		session_destroy();
 		header("Location: ".base_url());
 	}
-}
-?>
+	
+	public function user($userID = "my-profile") {
+		$this->load->helper("url"); // Load url helper
+		$data["title"] = "UniChat - View profile";
+		
+		$data['profile'] = $this->Users_model->getUser($userID);
+		if (empty($data['profile'])) {
+			show_404();
+		}
+		//$data['reciever'] = $this->Users_model->getUser($data['meetings_item']['RecieverID']);
+		$this->load->view('templates/header', $data);
+		$this->load->view('users/user', $data);
+		$this->load->view('templates/footer');
+	}
+} ?>

@@ -24,6 +24,7 @@ class Users_model extends CI_Model {
 			if ($inputs["email"] == $queryArray[0]["Email"] && $inputs["password"] == $queryArray[0]["Password"]) {
 				session_start();
 				$_SESSION["name"] = $queryArray[0]["FirstName"]." ".$queryArray[0]["LastName"];
+				$_SESSION["userID"] = $queryArray[0]["UserID"];
 				header("Location: ".base_url());
 			} else {
 				return false;
