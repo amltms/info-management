@@ -40,7 +40,7 @@
 				Bio:
 			</div>	
 			<div class="col-0">
-				 <input type="text" name="bioInput" placeholder="Bio" value="<?php echo($profile["Bio"]) ?>">
+				<textarea rows="4" cols="36" name="bioInput" placeholder="Bio" value="<?php echo($profile["Bio"]) ?>"></textarea>
 			</div>			
 		</div>
 		<div class="row">

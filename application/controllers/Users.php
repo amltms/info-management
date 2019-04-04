@@ -72,8 +72,8 @@ class Users extends CI_Controller {
 	
 	public function user($userID = "my-profile") {
 		$data["title"] = "UniChat - View profile";
-		$data['profile'] = $this->Users_model->getUser($userID);
-		if (empty($data['profile'])) {
+		$data["profile"] = $this->Users_model->getUser($userID);
+		if (empty($data["profile"])) {
 			show_404();
 		}
 		$this->load->view('templates/header', $data);
@@ -84,12 +84,36 @@ class Users extends CI_Controller {
 	public function editProfile() {
 		$data["title"] = "UniChat - Edit my profile";	
 		session_start();		
-		$data['profile'] = $this->Users_model->getUser($_SESSION['userID']);
-		if (empty($data['profile'])) {
+		$data["profile"] = $this->Users_model->getUser($_SESSION['userID']);
+		
+		if (empty($data["profile"])) {
 			show_404();
 		}
-		$this->load->view('templates/header', $data);
-		$this->load->view('users/edit_profile', $data);
+		
+		$this->form_validation->set_rules('firstNameInput', 'First name', 'required');
+		$this->form_validation->set_rules('secondNameInput', 'Second name', 'required');
+		$this->form_validation->set_rules('emailInput', 'Email address', 'required');
+		$this->form_validation->set_rules('universityInput', 'University', 'required');
+		$this->form_validation->set_rules('bioInput', 'Bio');
+		$this->form_validation->set_rules('phoneInput', 'Phone number');
+		
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('users/edit_profile', $data);
+			$this->load->view('templates/footer');
+		} else {
+			$this->load->view('templates/header', $data);
+			$this->load->view('users/edit_profile', $data);
+			switch ($this->Users_model->updateProfile($_SESSION['userID'])) {
+				case "email_used":
+					$this->load->view('errors/login/error_email_used', $data);
+					break;
+				case "account_updated":
+					header("Location: ".base_url()."/users/user/".$_SESSION['userID']);
+					break;
+			}
 		$this->load->view('templates/footer');
+		}
+		
 	}
 } ?>

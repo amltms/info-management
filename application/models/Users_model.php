@@ -62,4 +62,28 @@ class Users_model extends CI_Model {
 			return "account_created";
 		}
 	}
+	
+	public function updateProfile($UserID) {
+		$inputs = array(
+			"FirstName" => $this->input->post("firstNameInput"),
+			"LastName" => $this->input->post("lastNameInput"),
+			"Email" => $this->input->post("emailInput"),
+			"University" => $this->input->post("universityInput"),
+			"Bio" => $this->input->post("bioInput"),
+			"PhoneNumber" => $this->input->post("phoneInput")
+		);
+
+		$query = $this->db->get_where("Users", array("UserID" => $_SESSION["userID"]));
+		$queryArray = $query->result_array();
+		
+		if ($queryArray) {
+			if ($queryArray[0]["Email"] === $inputs["Email"]) {
+				return "email_used";
+			} else {
+				$this->db->where('UserID', $_SESSION["userID"]);
+				$this->db->update('Users', $inputs); 
+				return "account_updated";
+			}
+		}
+	}
 } ?>
