@@ -81,14 +81,15 @@ class Users extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
-	public function editProfile($userID) {
-		$data["title"] = "UniChat - Edit my profile";		
-		$data['profile'] = $this->Users_model->getUser($userID);
+	public function editProfile() {
+		$data["title"] = "UniChat - Edit my profile";	
+		session_start();		
+		$data['profile'] = $this->Users_model->getUser($_SESSION['userID']);
 		if (empty($data['profile'])) {
 			show_404();
 		}
 		$this->load->view('templates/header', $data);
-		$this->load->view('users/user', $data);
+		$this->load->view('users/edit_profile', $data);
 		$this->load->view('templates/footer');
 	}
 } ?>
