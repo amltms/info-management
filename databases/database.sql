@@ -42,6 +42,7 @@ CREATE TABLE Meetings (
     MeetingDate DATETIME NOT NULL,
     SenderID int NOT NULL,
     RecieverID int NOT NULL,
+    Approve bit,
     FOREIGN KEY (SenderID) REFERENCES Users(UserID),
     FOREIGN KEY (RecieverID) REFERENCES Users(UserID)
 );
