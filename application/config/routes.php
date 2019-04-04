@@ -60,6 +60,8 @@ $route['messages'] = 'Messages/index';
 $route['messages/create'] = 'Messages/create';
 $route['user/(:any)'] = 'Users/user/$1';
 $route['editprofile'] = 'Users/editprofile';
+$route['search'] = 'Search/search';
+$route['search/(:any)'] = 'Search/search';
 
 $route['(:any)'] = 'pages/view/home';
 //$route['404_override'] = '';

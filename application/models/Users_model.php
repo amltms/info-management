@@ -85,7 +85,7 @@ class Users_model extends CI_Model {
 		$query = $this->db->get_where("Users", array("UserID" => $_SESSION["userID"]));
 		$queryArray = $query->result_array();
 		
-		$getEmails = "SELECT `Email` FROM `Users`";
+		$getEmails = "SELECT `Email` FROM `Users`"; // Get existing emails to stop user from changing their email to an already existing one
 		$emails = $this->db->query($getEmails);
 		$emailsArray = $emails->result_array();
 

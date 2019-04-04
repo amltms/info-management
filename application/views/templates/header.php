@@ -36,10 +36,10 @@
 				
 					<ul class="nav navbar-nav navbar-right">
 						<li class="nav-item">
-							<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-						</li>
-						<li class="nav-item">
-							<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+							<form method="get" action="<?php echo base_url(); ?>search/">
+								<input type="text" placeholder="Search" name="search">
+								<button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+							</form>
 						</li>
 						<?php if(!isset($_SESSION)) {  
 							session_start();
