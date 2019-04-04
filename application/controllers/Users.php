@@ -71,14 +71,22 @@ class Users extends CI_Controller {
 	}
 	
 	public function user($userID = "my-profile") {
-		$this->load->helper("url"); // Load url helper
 		$data["title"] = "UniChat - View profile";
-		
 		$data['profile'] = $this->Users_model->getUser($userID);
 		if (empty($data['profile'])) {
 			show_404();
 		}
-		//$data['reciever'] = $this->Users_model->getUser($data['meetings_item']['RecieverID']);
+		$this->load->view('templates/header', $data);
+		$this->load->view('users/user', $data);
+		$this->load->view('templates/footer');
+	}
+	
+	public function editProfile($userID) {
+		$data["title"] = "UniChat - Edit my profile";		
+		$data['profile'] = $this->Users_model->getUser($userID);
+		if (empty($data['profile'])) {
+			show_404();
+		}
 		$this->load->view('templates/header', $data);
 		$this->load->view('users/user', $data);
 		$this->load->view('templates/footer');
