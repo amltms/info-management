@@ -17,12 +17,12 @@ class Users extends CI_Controller {
 			$this->load->view('templates/header', $data);
 			$this->load->view('users/login', $data);
 			$this->load->view('templates/footer');
-	} else {
-		if ($this->Users_model->checkLogin() == false) {
-			$this->load->view('templates/header', $data);
-			$this->load->view('users/login', $data);
-			$this->load->view('errors/login/error_invalid_password', $data);
-			$this->load->view('templates/footer');
+		} else {
+			if ($this->Users_model->checkLogin() == false) {
+				$this->load->view('templates/header', $data);
+				$this->load->view('users/login', $data);
+				$this->load->view('errors/login/error_invalid_password', $data);
+				$this->load->view('templates/footer');
 			}
 		}
 	}
@@ -89,9 +89,10 @@ class Users extends CI_Controller {
 		if (empty($data["profile"])) {
 			show_404();
 		}
-		
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		$this->form_validation->set_rules('firstNameInput', 'First name', 'required');
-		$this->form_validation->set_rules('secondNameInput', 'Second name', 'required');
+		$this->form_validation->set_rules('lastNameInput', 'Last name', 'required');
 		$this->form_validation->set_rules('emailInput', 'Email address', 'required');
 		$this->form_validation->set_rules('universityInput', 'University', 'required');
 		$this->form_validation->set_rules('bioInput', 'Bio');
@@ -99,21 +100,20 @@ class Users extends CI_Controller {
 		
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('templates/header', $data);
-			$this->load->view('users/edit_profile', $data);
+			$this->load->view('users/editprofile', $data);
 			$this->load->view('templates/footer');
 		} else {
 			$this->load->view('templates/header', $data);
-			$this->load->view('users/edit_profile', $data);
+			$this->load->view('users/editprofile', $data);
 			switch ($this->Users_model->updateProfile($_SESSION['userID'])) {
 				case "email_used":
 					$this->load->view('errors/login/error_email_used', $data);
 					break;
 				case "account_updated":
-					header("Location: ".base_url()."/users/user/".$_SESSION['userID']);
+					header("Location: ".base_url()."users/user/".$_SESSION['userID']);
 					break;
 			}
 		$this->load->view('templates/footer');
 		}
-		
 	}
 } ?>

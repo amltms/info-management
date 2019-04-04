@@ -8,7 +8,7 @@ class Meetings_model extends CI_Model {
   public function getMeetings($meeting = FALSE) {
    if ($meeting === FALSE) {
    $query = $this->db->get('Meetings');//add below
-   $query = $this->db->get_where('Meetings', array('SenderID' => $_SESSION["userID"],'RecieverID' => $_SESSION["userID"]));
+   $query = $this->db->get_where('Meetings', array('SenderID' => $_SESSION["userID"]));
    return $query->result_array();
    }
    $query = $this->db->get_where('Meetings', array('MeetingID' => $meeting));

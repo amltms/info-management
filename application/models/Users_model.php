@@ -81,14 +81,16 @@ class Users_model extends CI_Model {
 		$query = $this->db->get_where("Users", array("UserID" => $_SESSION["userID"]));
 		$queryArray = $query->result_array();
 		
-		if ($queryArray) {
-			if ($queryArray[0]["Email"] === $inputs["Email"]) {
-				return "email_used";
-			} else {
-				$this->db->where('UserID', $_SESSION["userID"]);
-				$this->db->update('Users', $inputs); 
-				return "account_updated";
-			}
+		$getEmails = "SELECT `Email` FROM `Users`";
+		$emails = $this->db->query($getEmails);
+		$emailsArray = $emails->result_array();
+
+		if (in_array($emailsArray, array("Email" => $inputs["Email"])) &&  $inputs["Email"] =! $queryArray[0]["Email"]) {
+			return "email_used";
+		} else {
+			$this->db->where('UserID', $_SESSION["userID"]);
+			$this->db->update('Users', $inputs); 
+			return "account_updated";
 		}
 	}
 } ?>
