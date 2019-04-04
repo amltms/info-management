@@ -40,8 +40,9 @@ class Meetings extends CI_Controller {
     $this->form_validation->set_rules('location', 'Location', 'required');
     $this->form_validation->set_rules('date', 'Date', 'required');
     if ($this->form_validation->run() === FALSE) {
+      $data['lecturers'] = $this->users_model->getUsers(2,"Bournemouth University");
       $this->load->view('templates/header', $data);
-      $this->load->view('meetings/create');
+      $this->load->view('meetings/create', $data);
       $this->load->view('templates/footer');
     } else {
       $this->meetings_model->setMeetings();

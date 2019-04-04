@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Meetings_model extends CI_Model {
   public function __construct() {
     $this->load->database();
@@ -7,13 +8,13 @@ class Meetings_model extends CI_Model {
   public function getMeetings($meeting = FALSE) {
    if ($meeting === FALSE) {
    $query = $this->db->get('Meetings');//add below
-   $query = $this->db->get_where('Meetings', array('SenderID' => '1'));
+   $query = $this->db->get_where('Meetings', array('SenderID' => $_SESSION["userID"],'RecieverID' => $_SESSION["userID"]));
    return $query->result_array();
    }
    $query = $this->db->get_where('Meetings', array('meetingID' => $meeting));
-   $query2 = $this->db->get_where('Users', array('UserID' => $meeting));
    return $query->row_array();
   }
+
 
   public function setMeetings() {
     $this->load->helper('url');
@@ -21,7 +22,7 @@ class Meetings_model extends CI_Model {
       'Subject' => $this->input->post('subject'),
       'MeetingDate' => $this->input->post('date'),
       'Location' => $this->input->post('location'),
-      'SenderID' => '1', // Make a session
+      'SenderID' => $_SESSION["userID"], // Make a session
       'RecieverID' => '2',
 
     );
