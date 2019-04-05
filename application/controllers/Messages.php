@@ -9,7 +9,7 @@ class Messages extends CI_Controller {
   }
 
   public function index() {
-    $data['recievedMessages'] = $this->messages_model->getRecievedMessages();
+    $data['recievedMessages'] = $this->messages_model->getSentMessages();
     $data['title'] = 'Messages';
     $this->load->view('templates/header', $data);
     foreach ($data['recievedMessages'] as $message):

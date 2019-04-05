@@ -2,7 +2,7 @@
 <?php echo validation_errors(); ?>
 <?php echo form_open('messages/create'); ?>
   <label for="email">Email</label>
-  <input placeholder="<?php echo $user['Email']?>" type="input" name="email"/><br />
+  <input value="<?php echo $user['Email']?>" type="input" name="email"/><br />
   <label for="title">Title</label>
   <input type="input" name="title" /><br />
   <label for="message">Message</label>
