@@ -52,7 +52,7 @@ class Users_model extends CI_Model {
 
 		if ($inputs["password"] != $inputs["confirmPassword"]) {
 			return "passwords_no_match";
-		} else if (strlen($inputs["email"]) < 8 || strpos($inputs["email"], '@')) {
+		} else if (strlen($inputs["email"]) < 8) {
 			return "email_short";
 		} else if (strlen($this->input->post("passwordInput")) < 6 || strlen($this->input->post("passwordInput")) > 25) {
 			return "invalid_password";

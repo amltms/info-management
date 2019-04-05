@@ -72,17 +72,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
+			
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn' => '',
 	'hostname' => '127.0.0.1',
-	'username' => 's5072239',
-	'password' => 'pdUVTJvvdvPwgf3mrFwqy7ziuKuuCWvj',
-	'database' => 's5072239',
+	'username' => 's5060825',
+	'password' => 'CYHWUjRdYggjxWy3MyFfYYnvRPeWVbKX',
+	'database' => 's5060825',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => TRUE, //(ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
