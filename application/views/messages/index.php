@@ -1,7 +1,5 @@
-<h2><?php echo $title; ?></h2>
-<h3><?php echo $message['MessageTitle']; ?></h3>
 <div class="main">
-	<?php echo 'Message: '.$message['message'].'<br>'; ?>
-	With: <a href="<?php echo base_url()."users/user/".$sender['UserID'] ?>"><?php echo $sender['FirstName'].' '.$sender['LastName']; ?></a>
+	<h4><a href="<?php echo base_url()."users/user/".$user['UserID'] ?>"> <?php echo $user['FirstName'].' '.$user['LastName'];?></a><?php echo' - '.$message['MessageTitle']; ?></a></h4>
+	<?php echo 'Message: '.$message['Message'].'<br>'; ?>
+	<p><a href="<?php echo site_url('messages/create/'.$user['UserID']); ?>">Reply</a></p>
 </div>
-<p><a href="<?php echo site_url('meetings/'.$message['MessageID']); ?>">View Message</a></p>
