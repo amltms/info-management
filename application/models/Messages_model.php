@@ -5,12 +5,12 @@ class Messages_model extends CI_Model {
     session_start();
   }
 
-  public function getSentMessages() {
+  public function getRecievedMessages() {
     $query = $this->db->get_where('Messages', array('SenderID' => $_SESSION["userID"]));
     return $query->result_array();
   }
 
-  public function getRecievedMessages() {
+  public function getSentMessages() {
     $query = $this->db->get_where('Messages', array('RecieverID' => $_SESSION["userID"]));
     return $query->result_array();
   }
