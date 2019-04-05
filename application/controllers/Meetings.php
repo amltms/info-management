@@ -12,6 +12,7 @@ class Meetings extends CI_Controller {
     $data['meetings'] = $this->meetings_model->getMeetings();
     $data['title'] = 'Meetings';
     $this->load->view('templates/header', $data);
+    $this->load->view('meetings/meeting_header', $data);
     foreach ($data['meetings'] as $meetings_item):
       $data['meetings_item'] = $meetings_item;
       $data['reciever'] = $this->users_model->getUser($meetings_item['RecieverID']);
