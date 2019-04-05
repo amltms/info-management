@@ -5,16 +5,22 @@ class Search_model extends CI_Model {
 	}
 
 	public function getMeetings($search){
-		$query = $this->db->select('*')->from('Meetings')->where("Subject LIKE '%$search%'")->get();
-		return $query->row_array();
+		$sql = "SELECT * FROM Meetings WHERE Subject LIKE '%$search%'";
+		$query = $this->db->query($sql);
+		$results = $query->result_array();
+		return $results;
 	}
 	public function getMessages($search){
-		$query = $this->db->select('*')->from('Messages')->where("MessageTitle LIKE '%$search%'")->get();
-		return $query->row_array();
+		$sql = "SELECT * FROM Messages WHERE MessageTitle LIKE '%$search%'";
+		$query = $this->db->query($sql);
+		$results = $query->result_array();
+		return $results;
 	}
 	public function getUsers($search){
-		$query = $this->db->select('*')->from('Users')->where("FirstName LIKE '%$search%'")->get();
-		return $query->row_array();
+		$sql = "SELECT * FROM Users WHERE FirstName LIKE '%$search%'";
+		$query = $this->db->query($sql);
+		$results = $query->result_array();
+		return $results;
 	}
 
 } ?>
